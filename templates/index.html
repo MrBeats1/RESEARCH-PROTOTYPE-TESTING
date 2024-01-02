@@ -18,14 +18,19 @@
     </div>
 
     <script>
+        // Function to update the scanned data on the page
+        function updateScannedData(data) {
+            document.getElementById('scanned-data').textContent = `Scanned Data: ${data.trim()}`;
+        }
+    
         // Poll the server for updates every 2 seconds
         setInterval(() => {
-    fetch('http://192.168.1.2:5000/').then(response => response.text()).then(data => {
-        document.getElementById('scanned-data').innerHTML = `Scanned Data: ${data.trim()}`;
-    }).catch(error => {
-        console.error('Fetch error:', error);
-    });
-}, 2000);
-    </script>
+            fetch('http://192.168.1.2:5000/').then(response => response.text()).then(data => {
+                updateScannedData(data);
+            }).catch(error => {
+                console.error('Fetch error:', error);
+            });
+        }, 2000);
+    </script>    
 </body>
 </html>

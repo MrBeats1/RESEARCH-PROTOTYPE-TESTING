@@ -10,7 +10,8 @@ qr_code_data = None
 
 @app.route('/')
 def index():
-    return render_template('index.html', qr_code_data=qr_code_data)
+    global qr_code_data
+    return qr_code_data or "None"
 
 @app.route('/qr-data', methods=['POST'])
 def receive_qr_data():
@@ -24,4 +25,3 @@ if __name__ == '__main__':
     local_ip = socket.gethostbyname(socket.gethostname())
     print(f"Server running at http://{local_ip}:5000/")
     app.run(host='0.0.0.0', port=5000, debug=True)
-    
