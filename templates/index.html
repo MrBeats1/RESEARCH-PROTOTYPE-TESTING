@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <style>
+        #scanned-data {
+            font-size: 50px; /* Adjust the font size */
+            padding: 20px;   /* Adjust the padding */
+        }
+    </style>
+</head>
+<body>
+    <h1>QR Code Scanner</h1>
+    <div id="scanned-data">Scanned Data: {{ qr_code_data }}
+
+    </div>
+
+    <script>
+        // Poll the server for updates every 2 seconds
+        setInterval(() => {
+    fetch('http://192.168.1.2:5000/').then(response => response.text()).then(data => {
+        document.getElementById('scanned-data').innerHTML = `Scanned Data: ${data.trim()}`;
+    }).catch(error => {
+        console.error('Fetch error:', error);
+    });
+}, 2000);
+    </script>
+</body>
+</html>
