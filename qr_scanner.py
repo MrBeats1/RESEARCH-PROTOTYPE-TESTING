@@ -26,3 +26,7 @@ while True:
 
 # Close the serial port when done
 ser.close()
+
+# downloading modules
+# py -m pip install requests
+# py -m pip install pyserial

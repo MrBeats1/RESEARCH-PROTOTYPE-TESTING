@@ -10,8 +10,7 @@ qr_code_data = None
 
 @app.route('/')
 def index():
-    global qr_code_data
-    return qr_code_data or "None"
+    return render_template('index.html', qr_code_data=qr_code_data)
 
 @app.route('/qr-data', methods=['POST'])
 def receive_qr_data():
@@ -24,4 +23,11 @@ if __name__ == '__main__':
     # Get the local IP address of the computer (useful for mobile phone connection)
     local_ip = socket.gethostbyname(socket.gethostname())
     print(f"Server running at http://{local_ip}:5000/")
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Use Waitress as the server
+    from waitress import serve
+    serve(app, host='0.0.0.0', port=5000)
+
+# run the server with "waitress-serve --host=0.0.0.0 --port=5000 app:app"
+# downloading modules:
+# py -m pip install Flask
+# py -m pip install Flask-CORS
