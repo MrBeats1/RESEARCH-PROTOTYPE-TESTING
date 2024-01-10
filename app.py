@@ -28,7 +28,7 @@ if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=5000)
 
 # run the server with "waitress-serve --host=0.0.0.0 --port=5000 app:app"
-# downloading modules:
+# download modules:
 # py -m pip install Flask
 # py -m pip install Flask-CORS
 # py -m pip install waitress
