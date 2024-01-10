@@ -31,3 +31,4 @@ if __name__ == '__main__':
 # downloading modules:
 # py -m pip install Flask
 # py -m pip install Flask-CORS
+# py -m pip install waitress
