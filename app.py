@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Global variable to store the scanned QR code data
-qr_code_data = None
+qr_code_data = 1
 
 @app.route('/')
 def index():
@@ -28,7 +28,7 @@ if __name__ == '__main__':
     serve(app, host='0.0.0.0', port=5000)
 
 # run the server with "waitress-serve --host=0.0.0.0 --port=5000 app:app"
-# download modules:
+# downloading modules:
 # py -m pip install Flask
 # py -m pip install Flask-CORS
 # py -m pip install waitress
