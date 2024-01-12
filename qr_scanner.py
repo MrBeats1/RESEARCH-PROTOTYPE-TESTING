@@ -1,8 +1,12 @@
 import requests
 import serial
+import socket
+
+# Get the local IP address of the computer (useful for mobile phone connection)
+local_ip = socket.gethostbyname(socket.gethostname())
 
 # Flask server URL
-server_url = "http://192.168.1.2:5000/qr-data"  # Update with your server's IP address
+server_url = f"http://{local_ip}:5000/qr-data"  # Update with your server's IP address and port
 
 # Set the port for your USB-CDC QR scanner
 serial_port = 'COM4'  # Update with your actual port
