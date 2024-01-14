@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import socket
 from flask_cors import CORS
 from datetime import datetime
+from sqlalchemy import desc
 
 app = Flask(__name__)
 CORS(app)
@@ -20,8 +21,25 @@ class QRCodeData(db.Model):
 
 @app.route('/')
 def index():
-    qr_code_data = QRCodeData.query.first()
-    return render_template('index.html', qr_code_data=qr_code_data.data if qr_code_data else None)
+    # Fetch the latest two entries based on the timestamp
+    qr_code_data = QRCodeData.query.order_by(desc(QRCodeData.timestamp)).limit(2).all()
+
+    if not qr_code_data or len(qr_code_data) < 2:
+        # If there are no entries or less than two entries, create and add a new entry with an initial value of "1"
+        new_data = QRCodeData(data="1")
+        db.session.add(new_data)
+        db.session.commit()
+        qr_code_data = [new_data]
+    else:
+        # Reverse the order to get the entry that came before the latest one
+        qr_code_data = qr_code_data[::-1]
+
+    # Ensure that qr_code_data has at least two elements
+    if len(qr_code_data) >= 2:
+        return render_template('index.html', qr_code_data=qr_code_data[1].data)
+    else:
+        # Handle the case when there are not enough elements
+        return render_template('index.html', qr_code_data="1")
 
 @app.route('/qr-data', methods=['POST'])
 def receive_qr_data():
