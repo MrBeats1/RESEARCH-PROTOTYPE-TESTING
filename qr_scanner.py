@@ -1,6 +1,10 @@
 import requests
 import serial
 import socket
+import os
+
+# Set the working directory to the directory containing the executable
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # Get the local IP address of the computer (useful for mobile phone connection)
 local_ip = socket.gethostbyname(socket.gethostname())

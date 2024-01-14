@@ -4,6 +4,10 @@ import socket
 from flask_cors import CORS
 from datetime import datetime
 from sqlalchemy import desc
+import os
+
+# Set the working directory to the directory containing the executable
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 app = Flask(__name__)
 CORS(app)
