@@ -186,6 +186,8 @@ imports:
  &#8226;   <a href="#reprlib">reprlib</a>
  &#8226;   <a href="#requests">requests</a>
  &#8226;   <a href="#serial">serial</a>
+ &#8226;   <a href="#serial.tools">serial.tools</a>
+ &#8226;   <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
  &#8226;   <a href="#socket">socket</a>
  &#8226;   <a href="#sre_compile">sre_compile</a>
  &#8226;   <a href="#sre_constants">sre_constants</a>
@@ -266,6 +268,12 @@ imported by:
  &#8226;   <a href="#serial.serialposix">serial.serialposix</a>
  &#8226;   <a href="#serial.serialutil">serial.serialutil</a>
  &#8226;   <a href="#serial.serialwin32">serial.serialwin32</a>
+ &#8226;   <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+ &#8226;   <a href="#serial.tools.list_ports_linux">serial.tools.list_ports_linux</a>
+ &#8226;   <a href="#serial.tools.list_ports_osx">serial.tools.list_ports_osx</a>
+ &#8226;   <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
+ &#8226;   <a href="#serial.tools.list_ports_windows">serial.tools.list_ports_windows</a>
  &#8226;   <a href="#serial.win32">serial.win32</a>
  &#8226;   <a href="#urllib3">urllib3</a>
  &#8226;   <a href="#urllib3._base_connection">urllib3._base_connection</a>
@@ -1190,6 +1198,7 @@ imported by:
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#py_compile">py_compile</a>
+ &#8226;   <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tokenize">tokenize</a>
  &#8226;   <a href="#zipfile">zipfile</a>
@@ -1939,6 +1948,7 @@ imported by:
     <a href="#_threading_local">_threading_local</a>
  &#8226;   <a href="#ast">ast</a>
  &#8226;   <a href="#getpass">getpass</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.resources._adapters">importlib.resources._adapters</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
@@ -2069,6 +2079,8 @@ imported by:
     <a href="#ctypes._endian">ctypes._endian</a>
  &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
  &#8226;   <a href="#serial.serialwin32">serial.serialwin32</a>
+ &#8226;   <a href="#serial.tools.list_ports_osx">serial.tools.list_ports_osx</a>
+ &#8226;   <a href="#serial.tools.list_ports_windows">serial.tools.list_ports_windows</a>
  &#8226;   <a href="#serial.win32">serial.win32</a>
 
   </div>
@@ -2102,7 +2114,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#serial.win32">serial.win32</a>
+    <a href="#serial.tools.list_ports_windows">serial.tools.list_ports_windows</a>
+ &#8226;   <a href="#serial.win32">serial.win32</a>
 
   </div>
 
@@ -5267,7 +5280,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#pathlib">pathlib</a>
+    <a href="#glob">glob</a>
+ &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
@@ -5474,6 +5488,30 @@ imports:
 imported by:
     <a href="#argparse">argparse</a>
  &#8226;   <a href="#getopt">getopt</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="glob"></a>
+  <a target="code" href="///C:/Users/Josh/AppData/Local/Programs/Python/Python312/Lib/glob.py" type="text/plain"><tt>glob</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#fnmatch">fnmatch</a>
+ &#8226;   <a href="#itertools">itertools</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#stat">stat</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+ &#8226;   <a href="#serial.tools.list_ports_linux">serial.tools.list_ports_linux</a>
+ &#8226;   <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
 
   </div>
 
@@ -6448,6 +6486,7 @@ imported by:
  &#8226;   <a href="#calendar">calendar</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#importlib.metadata._itertools">importlib.metadata._itertools</a>
  &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
@@ -6813,6 +6852,7 @@ imported by:
     <a href="#os">os</a>
  &#8226;   <a href="#py_compile">py_compile</a>
  &#8226;   <a href="#requests.adapters">requests.adapters</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
  &#8226;   <a href="#tracemalloc">tracemalloc</a>
 
   </div>
@@ -6935,6 +6975,7 @@ imported by:
  &#8226;   <a href="#getopt">getopt</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
@@ -6961,6 +7002,10 @@ imported by:
  &#8226;   <a href="#requests.utils">requests.utils</a>
  &#8226;   <a href="#serial">serial</a>
  &#8226;   <a href="#serial.serialposix">serial.serialposix</a>
+ &#8226;   <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+ &#8226;   <a href="#serial.tools.list_ports_linux">serial.tools.list_ports_linux</a>
+ &#8226;   <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#socket">socket</a>
  &#8226;   <a href="#ssl">ssl</a>
@@ -7265,6 +7310,7 @@ imported by:
  &#8226;   <a href="#fractions">fractions</a>
  &#8226;   <a href="#ftplib">ftplib</a>
  &#8226;   <a href="#gettext">gettext</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.cookies">http.cookies</a>
@@ -7292,6 +7338,9 @@ imported by:
  &#8226;   <a href="#requests._internal_utils">requests._internal_utils</a>
  &#8226;   <a href="#requests.auth">requests.auth</a>
  &#8226;   <a href="#requests.utils">requests.utils</a>
+ &#8226;   <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+ &#8226;   <a href="#serial.tools.list_ports_windows">serial.tools.list_ports_windows</a>
  &#8226;   <a href="#sre_compile">sre_compile</a>
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
@@ -7948,6 +7997,9 @@ imported by:
  &#8226;   <a href="#serial.serialposix">serial.serialposix</a>
  &#8226;   <a href="#serial.serialutil">serial.serialutil</a>
  &#8226;   <a href="#serial.serialwin32">serial.serialwin32</a>
+ &#8226;   <a href="#serial.tools">serial.tools</a>
+ &#8226;   <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
+ &#8226;   <a href="#serial.tools.list_ports_windows">serial.tools.list_ports_windows</a>
  &#8226;   <a href="#serial.win32">serial.win32</a>
 
   </div>
@@ -8066,6 +8118,165 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="serial.tools"></a>
+  <a target="code" href="///C:/Users/Josh/AppData/Local/Programs/Python/Python312/Lib/site-packages/serial/tools/__init__.py" type="text/plain"><tt>serial.tools</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imports:
+    <a href="#serial">serial</a>
+ &#8226;   <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#qr_scanner.py">qr_scanner.py</a>
+ &#8226;   <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+ &#8226;   <a href="#serial.tools.list_ports_linux">serial.tools.list_ports_linux</a>
+ &#8226;   <a href="#serial.tools.list_ports_osx">serial.tools.list_ports_osx</a>
+ &#8226;   <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
+ &#8226;   <a href="#serial.tools.list_ports_windows">serial.tools.list_ports_windows</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="serial.tools.list_ports"></a>
+  <a target="code" href="///C:/Users/Josh/AppData/Local/Programs/Python/Python312/Lib/site-packages/serial/tools/list_ports.py" type="text/plain"><tt>serial.tools.list_ports</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#argparse">argparse</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#serial.tools">serial.tools</a>
+ &#8226;   <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
+ &#8226;   <a href="#serial.tools.list_ports_windows">serial.tools.list_ports_windows</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#qr_scanner.py">qr_scanner.py</a>
+ &#8226;   <a href="#serial.tools">serial.tools</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="serial.tools.list_ports_common"></a>
+  <a target="code" href="///C:/Users/Josh/AppData/Local/Programs/Python/Python312/Lib/site-packages/serial/tools/list_ports_common.py" type="text/plain"><tt>serial.tools.list_ports_common</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#glob">glob</a>
+ &#8226;   <a href="#ntpath">ntpath</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#serial.tools">serial.tools</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#serial.tools">serial.tools</a>
+ &#8226;   <a href="#serial.tools.list_ports_linux">serial.tools.list_ports_linux</a>
+ &#8226;   <a href="#serial.tools.list_ports_osx">serial.tools.list_ports_osx</a>
+ &#8226;   <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
+ &#8226;   <a href="#serial.tools.list_ports_windows">serial.tools.list_ports_windows</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="serial.tools.list_ports_linux"></a>
+  <a target="code" href="///C:/Users/Josh/AppData/Local/Programs/Python/Python312/Lib/site-packages/serial/tools/list_ports_linux.py" type="text/plain"><tt>serial.tools.list_ports_linux</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#glob">glob</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#serial.tools">serial.tools</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="serial.tools.list_ports_osx"></a>
+  <a target="code" href="///C:/Users/Josh/AppData/Local/Programs/Python/Python312/Lib/site-packages/serial/tools/list_ports_osx.py" type="text/plain"><tt>serial.tools.list_ports_osx</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#serial.tools">serial.tools</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="serial.tools.list_ports_posix"></a>
+  <a target="code" href="///C:/Users/Josh/AppData/Local/Programs/Python/Python312/Lib/site-packages/serial/tools/list_ports_posix.py" type="text/plain"><tt>serial.tools.list_ports_posix</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#glob">glob</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#serial">serial</a>
+ &#8226;   <a href="#serial.tools">serial.tools</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+ &#8226;   <a href="#serial.tools.list_ports_linux">serial.tools.list_ports_linux</a>
+ &#8226;   <a href="#serial.tools.list_ports_osx">serial.tools.list_ports_osx</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="serial.tools.list_ports_windows"></a>
+  <a target="code" href="///C:/Users/Josh/AppData/Local/Programs/Python/Python312/Lib/site-packages/serial/tools/list_ports_windows.py" type="text/plain"><tt>serial.tools.list_ports_windows</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#__future__">__future__</a>
+ &#8226;   <a href="#ctypes">ctypes</a>
+ &#8226;   <a href="#ctypes.wintypes">ctypes.wintypes</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#serial">serial</a>
+ &#8226;   <a href="#serial.tools">serial.tools</a>
+ &#8226;   <a href="#serial.tools.list_ports_common">serial.tools.list_ports_common</a>
+ &#8226;   <a href="#serial.win32">serial.win32</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="serial.win32"></a>
   <a target="code" href="///C:/Users/Josh/AppData/Local/Programs/Python/Python312/Lib/site-packages/serial/win32.py" type="text/plain"><tt>serial.win32</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -8080,6 +8291,7 @@ imports:
 imported by:
     <a href="#serial">serial</a>
  &#8226;   <a href="#serial.serialwin32">serial.serialwin32</a>
+ &#8226;   <a href="#serial.tools.list_ports_windows">serial.tools.list_ports_windows</a>
 
   </div>
 
@@ -8304,6 +8516,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#genericpath">genericpath</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#netrc">netrc</a>
  &#8226;   <a href="#ntpath">ntpath</a>
  &#8226;   <a href="#os">os</a>
@@ -8479,6 +8692,7 @@ imported by:
  &#8226;   <a href="#getopt">getopt</a>
  &#8226;   <a href="#getpass">getpass</a>
  &#8226;   <a href="#gettext">gettext</a>
+ &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#importlib">importlib</a>
@@ -8508,6 +8722,8 @@ imported by:
  &#8226;   <a href="#serial">serial</a>
  &#8226;   <a href="#serial.serialposix">serial.serialposix</a>
  &#8226;   <a href="#serial.serialutil">serial.serialutil</a>
+ &#8226;   <a href="#serial.tools.list_ports">serial.tools.list_ports</a>
+ &#8226;   <a href="#serial.tools.list_ports_posix">serial.tools.list_ports_posix</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#socket">socket</a>
  &#8226;   <a href="#ssl">ssl</a>
