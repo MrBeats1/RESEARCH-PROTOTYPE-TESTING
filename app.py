@@ -6,10 +6,9 @@ from datetime import datetime
 from sqlalchemy import desc
 import os
 
-# Set the working directory to the directory containing the executable
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+templates_path = os.path.join(os.getcwd(), 'templates')
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=templates_path)
 CORS(app)
 
 # Configure SQLite database
