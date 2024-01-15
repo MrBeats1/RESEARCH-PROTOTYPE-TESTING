@@ -1,42 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Scanner</title>
     <style>
+        body {
+            margin: 0;
+            /* Remove default margin */
+            font-family: Helvetica;
+        }
+
         #scanned-data {
-            font-size: 50px; /* Adjust the font size */
-            padding: 20px;   /* Adjust the padding */
+            font-size: 50px;
+            padding: 20px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #top-fixed-div {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 12.5%;
+            background-color: #ff3131;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            color: #000000;
+            /* Text color set to black */
+        }
+
+        #logo-container {
+            border: 1px solid #ff3131;
+            /* Black border for the image frame */
+            height: 70%;
+            /* Same height as the whole text group */
+            max-width: 100%;
+            /* Adjust the max-width as needed */
+        }
+
+        #logo {
+            height: 100%;
+            /* Ensure the image height is 100% of the container */
+            width: auto;
+            /* Maintain aspect ratio */
+            display: block;
+            /* Remove extra space below image */
+        }
+
+        #text-container {
+            text-align: center;
+        }
+
+        #text-container h2 {
+            font-size: 29px;
+            margin: 0;
+            /* Remove default margin for h2 */
+        }
+
+        #text-container p {
+            font-size: 17px;
+            margin: 5px 0;
+            /* Adjust margin for paragraphs */
+        }
+
+        #text-container #research-title {
+            font-size: 18px;
+            margin: 5px 0;
         }
     </style>
 </head>
+
 <body>
-    <h1>QR Code Scanner</h1>
+    <div id="top-fixed-div">
+        <div id="logo-container">
+            <img id="logo"
+                src="https://static.wixstatic.com/media/a1feb1_4f7b5e4acb1746b194d07385c9f360aa.png/v1/fill/w_264,h_264,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a1feb1_4f7b5e4acb1746b194d07385c9f360aa.png"
+                alt="Logo Image">
+        </div>
+        <div id="text-container">
+            <h2>BERNARDO COLLEGE</h2>
+            <p>12-ICT</p>
+            <p id="research-title">RESEARCH PROTOTYPE TEST RUN</p>
+        </div>
+    </div>
     <div id="scanned-data">Now Handling: {% if qr_code_data %} {{ qr_code_data }} {% else %} 1 {% endif %}</div>
 
     <script>
-        // Function to update the scanned data on the page
         function updateScannedData(data) {
             document.getElementById('scanned-data').textContent = `Now Handling: ${data.trim()}`;
         }
-    
-        // Poll the server for updates every 2 seconds
+
         setInterval(() => {
             fetch('http://192.168.1.2:5000/').then(response => response.text()).then(data => {
-                // Extract the relevant data from the HTML response
                 const startTag = '<div id="scanned-data">Now Handling: ';
                 const endTag = '</div>';
                 const startIndex = data.indexOf(startTag);
                 const endIndex = data.indexOf(endTag, startIndex + startTag.length);
                 const extractedData = data.substring(startIndex + startTag.length, endIndex).trim();
-                
-                // Update the page with the extracted data
+
                 updateScannedData(extractedData);
             }).catch(error => {
                 console.error('Fetch error:', error);
             });
         }, 500);
-    </script>    
+    </script>
 </body>
+
 </html>
