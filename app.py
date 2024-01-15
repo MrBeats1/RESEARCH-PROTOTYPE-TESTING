@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import socket
 from flask_cors import CORS
@@ -21,6 +21,12 @@ class QRCodeData(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     data = db.Column(db.String(255), nullable=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+# New route to get the server's IP address
+@app.route('/get-ip', methods=['GET'])
+def get_ip():
+    local_ip = socket.gethostbyname(socket.gethostname())
+    return jsonify({'ip': local_ip})
 
 @app.route('/')
 def index():
