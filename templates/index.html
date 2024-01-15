@@ -10,51 +10,33 @@
             padding: 20px;   /* Adjust the padding */
         }
     </style>
-    
-    <!-- New script for getting server's IP -->
-    <script>
-        // Function to get the server's IP address
-        function getServerIP(callback) {
-            fetch('/get-ip')
-                .then(response => response.json())
-                .then(data => {
-                    callback(data.ip);
-                })
-                .catch(error => {
-                    console.error('Error getting server IP:', error);
-                });
-        }
+</head>
+<body>
+    <h1>QR Code Scanner</h1>
+    <div id="scanned-data">Now Serving: {% if qr_code_data %} {{ qr_code_data }} {% else %} 1 {% endif %}</div>
 
+    <script>
         // Function to update the scanned data on the page
         function updateScannedData(data) {
-            document.getElementById('scanned-data').textContent = `Now Handling: ${data.trim()}`;
+            document.getElementById('scanned-data').textContent = `Now Serving: ${data.trim()}`;
         }
     
         // Poll the server for updates every 2 seconds
         setInterval(() => {
-            getServerIP(function(serverIP) {
-                const serverUrl = `http://${serverIP}:5000/qr-data`;
-                console.log('Updated server URL:', serverUrl);
-
-                fetch(serverUrl).then(response => response.text()).then(data => {
-                    // Extract the relevant data from the HTML response
-                    const startTag = '<div id="scanned-data">Now Handling: ';
-                    const endTag = '</div>';
-                    const startIndex = data.indexOf(startTag);
-                    const endIndex = data.indexOf(endTag, startIndex + startTag.length);
-                    const extractedData = data.substring(startIndex + startTag.length, endIndex).trim();
-                    
-                    // Update the page with the extracted data
-                    updateScannedData(extractedData);
-                }).catch(error => {
-                    console.error('Fetch error:', error);
-                });
+            fetch('http://192.168.1.2:5000/').then(response => response.text()).then(data => {
+                // Extract the relevant data from the HTML response
+                const startTag = '<div id="scanned-data">Now Serving: ';
+                const endTag = '</div>';
+                const startIndex = data.indexOf(startTag);
+                const endIndex = data.indexOf(endTag, startIndex + startTag.length);
+                const extractedData = data.substring(startIndex + startTag.length, endIndex).trim();
+                
+                // Update the page with the extracted data
+                updateScannedData(extractedData);
+            }).catch(error => {
+                console.error('Fetch error:', error);
             });
         }, 500);
-    </script>
-</head>
-<body>
-    <h1>QR Code Scanner</h1>
-    <div id="scanned-data">Now Handling: {% if qr_code_data %} {{ qr_code_data }} {% else %} 1 {% endif %}</div>
+    </script>    
 </body>
 </html>
