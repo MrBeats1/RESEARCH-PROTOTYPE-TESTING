@@ -8,7 +8,6 @@
     <style>
         body {
             margin: 0;
-            /* Remove default margin */
             font-family: Helvetica;
         }
 
@@ -22,6 +21,20 @@
             transform: translate(-50%, -50%);
         }
 
+        #handling-label {
+            font-family: 'Verdana', sans-serif;
+            font-size: 40px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        #handling-data {
+            font-family: 'Verdana', sans-serif;
+            font-size: 70px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
         #top-fixed-div {
             position: fixed;
             top: 0;
@@ -33,25 +46,18 @@
             justify-content: center;
             padding: 0 20px;
             color: #000000;
-            /* Text color set to black */
         }
 
         #logo-container {
             border: 1px solid #ff3131;
-            /* Black border for the image frame */
             height: 70%;
-            /* Same height as the whole text group */
             max-width: 100%;
-            /* Adjust the max-width as needed */
         }
 
         #logo {
             height: 100%;
-            /* Ensure the image height is 100% of the container */
             width: auto;
-            /* Maintain aspect ratio */
             display: block;
-            /* Remove extra space below image */
         }
 
         #text-container {
@@ -61,18 +67,33 @@
         #text-container h2 {
             font-size: 29px;
             margin: 0;
-            /* Remove default margin for h2 */
         }
 
         #text-container p {
             font-size: 17px;
             margin: 5px 0;
-            /* Adjust margin for paragraphs */
         }
 
         #text-container #research-title {
             font-size: 18px;
             margin: 5px 0;
+        }
+
+        /* New styles for date and clock */
+        #bottom-left {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 18px;
+            color: #000000;
+        }
+
+        #bottom-right {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 18px;
+            color: #000000;
         }
     </style>
 </head>
@@ -90,27 +111,45 @@
             <p id="research-title">RESEARCH PROTOTYPE TEST RUN</p>
         </div>
     </div>
-    <div id="scanned-data">Now Handling: {% if qr_code_data %} {{ qr_code_data }} {% else %} 1 {% endif %}</div>
-
+    <div id="scanned-data">
+        <span id="handling-label">Now Handling</span><br><br>
+        <span id="handling-data">{% if qr_code_data %} {{ qr_code_data }} {% else %} 1 {% endif %}</span>
+    </div>
+    <div id="bottom-left">
+        <span id="month">January </span>/<span id="day"> 16 </span>/<span id="year"> 2024</span>
+    </div>    
+    <div id="bottom-right">
+        <span id="clock">12:00 AM</span>
+    </div>
     <script>
         function updateScannedData(data) {
-            document.getElementById('scanned-data').textContent = `Now Handling: ${data.trim()}`;
+            const startTag = '<span id="handling-data">';
+            const endTag = '</span>';
+            const startIndex = data.indexOf(startTag);
+            const endIndex = data.indexOf(endTag, startIndex + startTag.length);
+            const extractedData = data.substring(startIndex + startTag.length, endIndex).trim();
+
+            document.getElementById('handling-data').textContent = extractedData;
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedTime = `${hours % 12}:${minutes} ${ampm}`;
+
+            document.getElementById('clock').textContent = formattedTime;
         }
 
         setInterval(() => {
             fetch('http://192.168.1.2:5000/').then(response => response.text()).then(data => {
-                const startTag = '<div id="scanned-data">Now Handling: ';
-                const endTag = '</div>';
-                const startIndex = data.indexOf(startTag);
-                const endIndex = data.indexOf(endTag, startIndex + startTag.length);
-                const extractedData = data.substring(startIndex + startTag.length, endIndex).trim();
-
-                updateScannedData(extractedData);
+                updateScannedData(data);
             }).catch(error => {
                 console.error('Fetch error:', error);
             });
+            updateClock();
         }, 500);
     </script>
 </body>
-
 </html>
