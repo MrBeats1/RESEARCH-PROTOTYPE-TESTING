@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-import socket
 from flask_cors import CORS
 from datetime import datetime
 from sqlalchemy import desc
 import os
+import socket
+import webbrowser  # Import the webbrowser module
 
 templates_path = os.path.join(os.getcwd(), 'templates')
 
@@ -63,5 +64,10 @@ if __name__ == '__main__':
 
     local_ip = socket.gethostbyname(socket.gethostname())
     print(f"Server running at http://{local_ip}:5000/")
+
+    # Open the default web browser to the Flask app
+    webbrowser.open(f"http://{local_ip}:5000/")
+
+    # Use Waitress as the server
     from waitress import serve
     serve(app, host='0.0.0.0', port=5000)
